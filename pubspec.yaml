@@ -58,6 +58,13 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/
+    
+    # database folder
+    - assets/database/
+    - assets/database/data/
+    - assets/database/logos/
+
+    - assets/database/sounds/mbg/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
