@@ -17,15 +17,9 @@ jobs:
         with:
           distribution: "zulu"
           java-version: "11"
-      - uses: actions/checkout@v3
-        with:
-          path: egao_database
-          repository: fltstore/egao_database
-          ref: main
-          token: ${{ secrets.GITHUB_TOKEN }}
       - run: |
           ls -al .
-          cp -rf egao_database ./assets/database
+          git clone --depth=1 https://github.com/fltstore/egao_database ./assets/database
           rm -rf ./assets/database/.git
           ls -al ./assets/database
 
