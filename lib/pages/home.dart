@@ -21,6 +21,20 @@ class _HomePageViewState extends State<HomePageView> {
     return packs;
   }
 
+  List<EgaoDatabasePack> _packData = [];
+
+  beforeHook() async {
+    var data = await loadData();
+    _packData = data;
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    beforeHook();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,26 +42,19 @@ class _HomePageViewState extends State<HomePageView> {
         title: const Text("恶搞盒"),
         elevation: 0,
       ),
-      body: FutureBuilder(
-        future: loadData(),
-        builder: (
-          BuildContext context,
-          AsyncSnapshot<List<EgaoDatabasePack>> snapshot,
-        ) {
-          switch (snapshot.connectionState) {
-            case ConnectionState.done:
-              return _buildWithBody(snapshot.data ?? []);
-            default:
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
+      body: Builder(
+        builder: (BuildContext context) {
+          if (_packData.isEmpty) {
+            return const CircularProgressIndicator();
           }
+          return _buildWithBody(_packData);
         },
       ),
     );
   }
 
   Widget _buildWithBody(List<EgaoDatabasePack> data) {
+    Size size = MediaQuery.of(context).size;
     return Column(
       children: [
         const SizedBox(
@@ -59,15 +66,15 @@ class _HomePageViewState extends State<HomePageView> {
               crossAxisCount: 3,
               crossAxisSpacing: 6,
               mainAxisSpacing: 6,
-              childAspectRatio: MediaQuery.of(context).size.width /
-                      (MediaQuery.of(context).size.height / 1.8),
+              childAspectRatio: size.width / (size.height / 1.8),
             ),
             itemCount: data.length,
             itemBuilder: (BuildContext context, int index) {
               var curr = data[index];
+              var imagePath = spliceMetaDataLogoPath(curr.logo);
               return AppCard(
                 title: curr.name,
-                image: spliceMetaDataLogoPath(curr.logo),
+                image: imagePath,
                 onTap: () {
                   context.push('/detail/${curr.id}');
                 },
