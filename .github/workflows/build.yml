@@ -21,6 +21,7 @@ jobs:
         with:
           path: egao_database
           repository: fltstore/egao_database
+          ref: main
           token: ${{ secrets.GITHUB_TOKEN }}
       - run: |
           ls -al .
