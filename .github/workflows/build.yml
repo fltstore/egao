@@ -17,8 +17,7 @@ jobs:
         with:
           distribution: "zulu"
           java-version: "11"
-      - name: Check out my other private repo
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
         with:
           path: egao_database
           repository: fltstore/egao_database
