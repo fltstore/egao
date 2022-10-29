@@ -33,6 +33,9 @@ dependencies:
   go_router: ^4.3.0
   just_audio: ^0.9.28
 
+flutter_launcher_name:
+  name: "恶搞盒"
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -43,6 +46,11 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^1.0.0
+
+  # flutter pub run flutter_launcher_name:main
+  flutter_launcher_name:
+    git:
+      url: https://github.com/d1y/flutter_launcher_name
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

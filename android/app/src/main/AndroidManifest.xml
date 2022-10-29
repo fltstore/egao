@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="io.fltstore.egao.egao">
    <application
-        android:label="egao"
+        android:label="恶搞盒"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
