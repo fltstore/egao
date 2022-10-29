@@ -65,6 +65,12 @@ flutter:
     - assets/database/logos/
 
     - assets/database/sounds/mbg/
+    - assets/database/sounds/lb/
+    - assets/database/sounds/dbws/
+    - assets/database/sounds/cxk/
+    - assets/database/sounds/jg/
+    - assets/database/sounds/van/
+    - assets/database/sounds/lbw/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
